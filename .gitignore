@@ -1,0 +1,7 @@
+# Default ignored files
+/.idea
+/accountant-docker/*
+/vidishKey.pem
+/OctoberDebit.pdf
+/creditCardStatement.PDF
+/Acct Statement-XX6511-01112022.pdf
