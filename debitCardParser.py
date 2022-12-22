@@ -55,26 +55,32 @@ class DebitParser:
     def extractData(self, pdfDf):
         for i in range(len(pdfDf)):
             currentRow = []
+            #To stop the reading at the end of the statement
             if "STATEMENT SUMMARY" in pdfDf.iloc[i, 1]:
                 break
+            # next if is to append the extended payee detail to the previous one
             if type(pdfDf.iloc[i, 0]) == float or type(pdfDf.iloc[i, 0]) == numpy.float64:
                 if len(self.__userInfo) > 0:
                     self.__userInfo[-1][1] += str(pdfDf.iloc[i, 1])
             else:
                 for j in range(len(pdfDf.columns)):
+                    # Represents the date of transaction
                     if j == 0:
                         currentDate = datetime.datetime.strptime(pdfDf.iloc[i, 0], "%d/%m/%y").date()
                         currentRow.append(currentDate)
+                    # Represents the credit amount, debit amount or the total amount in the account
                     if j == 4 or j == 5 or j == 6:
                         if type(pdfDf.iloc[i, j]) == str:
                             pdfDf.iloc[i, j] = pdfDf.iloc[i, j].replace(",", "")
                         convertedValue = float(pdfDf.iloc[i, j])
                         currentRow.append(convertedValue)
+                    # Represents the payee details
                     if j == 1:
                         currentRow.append(pdfDf.iloc[i, j])
             if len(currentRow) != 0:
                 self.__userInfo.append(currentRow)
 
+    # If its a UPI transaction then clean the payee details here accordingly.
     def cleanPayeeData(self):
         for transaction in self.__userInfo:
             if transaction[1].startswith('UPI'):
@@ -82,6 +88,7 @@ class DebitParser:
                 transaction[1] = details[0] + "-" + details[1]
                 transaction.append(details[-1])
 
+    # This function puts the data in the respective list.
     def categoriseDate(self):
         for i in range(len(self.__userInfo)):
             if isUPICredit(self.__userInfo[i]):
@@ -97,5 +104,6 @@ class DebitParser:
                 self.__dcardCredit.append(self.__userInfo[i])
                 self.__NonUPITrans.append(self.__userInfo[i])
 
+    # Returnee function
     def returneeFunction(self):
         return [self.__userInfo, self.__UPITrans, self.__NonUPITrans]
