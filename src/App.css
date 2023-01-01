@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+*{
+    background-color: #edeeec;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.firstGrid{
+    display: grid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.mainImage{
+    grid-row: 1;
+    grid-column:1/span 3;
+    height: auto;
+    width: auto;
+    min-width: 450px;
+    min-height: 300px;
+    max-width: 500px;
+    max-height: 450px;
+    margin-block-start: 50px;
+    margin-inline-start: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logoContainer{
+    grid-row:1/span 2;
+    grid-column: 5;
 }
-
-.App-link {
-  color: #61dafb;
+.mainLogo{
+    position:relative;
+    height: auto;
+    width: auto;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    margin-block-start:50px;
+    margin-inline-start: 50px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 
+.welcomeBox{
+    border-radius: 0px;
+    color: black;
+    width: 200px;
+    height: 400px;
+} */
+.secondGrid{
+    display: grid;
+    grid-template-columns: 200px 200px 200px 100px;
+    gap:20px
 }
