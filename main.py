@@ -1,11 +1,35 @@
-from flask import Flask, jsonify
-from flask import request
-from handler import Handler
-import requests
 import os
+
+import requests
+from flask import Flask, jsonify
 from flask import Response
+from flask import request
+
+import stocksFetcher
+from handler import Handler
 
 app = Flask(__name__)
+
+
+@app.route('/updateStocks', methods=['POST'])
+def updateStocks():
+    try:
+        postedData = request.get_json(force=True)
+        newStocksList = postedData['newStocksList']
+        # newStocksList = requests.get(request.json['newStocksList'])
+        print(newStocksList, type(newStocksList))
+        stocksFetcher.updateStocksList(newStocksList)
+        return Response({"Response": "Stocks data updated successfully."}, status=200)
+    except Exception as ex:
+        print(ex)
+
+
+@app.route('/refreshStocks', methods=['GET'])
+def refreshStocks():
+    try:
+        return stocksFetcher.refresh()
+    except Exception as ex:
+        print(ex)
 
 
 @app.route('/fetchStatement', methods=['POST'])

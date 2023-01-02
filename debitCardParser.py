@@ -55,7 +55,7 @@ class DebitParser:
     def extractData(self, pdfDf):
         for i in range(len(pdfDf)):
             currentRow = []
-            #To stop the reading at the end of the statement
+            # To stop the reading at the end of the statement
             if "STATEMENT SUMMARY" in pdfDf.iloc[i, 1]:
                 break
             # next if is to append the extended payee detail to the previous one
@@ -68,11 +68,13 @@ class DebitParser:
                     if j == 0:
                         currentDate = datetime.datetime.strptime(pdfDf.iloc[i, 0], "%d/%m/%y").date()
                         currentRow.append(currentDate)
-                    # Represents the credit amount, debit amount or the total amount in the account
-                    if j == 4 or j == 5 or j == 6:
+                    # Represents the credit amount, debit amount
+                    if j == 4 or j == 5:
                         if type(pdfDf.iloc[i, j]) == str:
                             pdfDf.iloc[i, j] = pdfDf.iloc[i, j].replace(",", "")
                         convertedValue = float(pdfDf.iloc[i, j])
+                        if j == 4:
+                            convertedValue = -1 * convertedValue
                         currentRow.append(convertedValue)
                     # Represents the payee details
                     if j == 1:
