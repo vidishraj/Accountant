@@ -7,21 +7,21 @@ from flask import request
 
 import stocksFetcher
 from handler import Handler
-
+from flask_cors import CORS
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/updateStocks', methods=['POST'])
 def updateStocks():
     try:
-        postedData = request.get_json(force=True)
-        newStocksList = postedData['newStocksList']
+        postedData= request.get_json(force=True)
+        print(postedData, type(postedData))
         # newStocksList = requests.get(request.json['newStocksList'])
-        print(newStocksList, type(newStocksList))
-        stocksFetcher.updateStocksList(newStocksList)
+        stocksFetcher.updateStocksList(postedData)
         return Response({"Response": "Stocks data updated successfully."}, status=200)
     except Exception as ex:
         print(ex)
+        return Response({"Error": ex}, status=500)
 
 
 @app.route('/refreshStocks', methods=['GET'])
