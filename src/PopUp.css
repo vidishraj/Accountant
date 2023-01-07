@@ -1,0 +1,22 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css");
+.modal {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.editButtonDiv{ 
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editButton{
+    border-radius: 10px;
+    background-color: #1ab568;
+    width:150px;
+}
+.editIcon{
+    width:70px;
+    height:40px;
+    background-color: #1ab568;
+}

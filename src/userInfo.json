@@ -13,6 +13,13 @@
             "gains": 0,
             "buyingPrice":208.23,
             "quantity": 60
+        },
+        {
+            "name":"adani gas",
+            "price": 150.95,
+            "gains": 0,
+            "buyingPrice":208.23,
+            "quantity": 60
         }
     ]
 }

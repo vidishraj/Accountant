@@ -1,12 +1,12 @@
 import {React, useState, useEffect} from 'react';
 import './stocksData.css'
-import dropDown from './dropdown.png'
 import stocksIcon from './stocksIcon.jpeg'
 import refreshIcon from './refreshIcon.png'
 import myData from './userInfo.json';
 import axios from 'axios';
-import stocksBackend from './services/stocksDataFetcher'
 import config from "./services/config.json"
+import './PopUp.css'
+import PopUpStruct from './PopUp';
 
 
 
@@ -67,6 +67,7 @@ const StocksData = (props) => {
       </div>
          </>
          )}
+    <PopUpStruct></PopUpStruct>
     </>
   );
 };
