@@ -63,7 +63,7 @@ const StocksData = (props) => {
         <div className='gainsLoss'>{}</div>
         {/* <img className='dropDown' src={dropDown}></img> */}
         {isVisible && (
-            <div>This element is now visible!</div>)}
+            <div>Hidden div is not visible.</div>)}
       </div>
          </>
          )}
