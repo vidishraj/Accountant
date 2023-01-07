@@ -1,0 +1,18 @@
+{
+    "StocksList":[
+        {
+            "name":"Prudent",
+            "price": 1197.1,
+            "gains": 0,
+            "buyingPrice":698,
+            "quantity": 12
+        },
+        {
+            "name":"JAICORPLTD",
+            "price": 150.95,
+            "gains": 0,
+            "buyingPrice":208.23,
+            "quantity": 60
+        }
+    ]
+}

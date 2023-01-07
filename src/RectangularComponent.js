@@ -18,8 +18,10 @@ const RectangularComponent = (props) => {
   };
 
   return (
-    <div style={style}>
+    <><div style={style}>
+      {children}
     </div>
+      </>
   );
 };
 

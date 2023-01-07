@@ -1,12 +1,13 @@
 import './App.css';
 import mainImage from './mainImage.png'
 import mainLogo from './mainLogo.png'
-import RectangularComponent from './RoundedComponent';
+import RectangularComponent from './RectangularComponent';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.css';
+import StocksData from './stocksData';
 function App() {
   return (
     <>
@@ -51,7 +52,9 @@ function App() {
         color="white"
         width="300px"
         height="500px"
-        top="10px"
+        top="0px"
+        left="4px"
+        children={<StocksData></StocksData>}
         // gridC= "5"
         // gridR= "2"
     ></RectangularComponent>
@@ -63,6 +66,7 @@ function App() {
       height="100px"
       gridC="1"
       gridR="2"
+      top="10px"
       ></RectangularComponent>
       <RectangularComponent 
       radius="10px"
@@ -71,6 +75,7 @@ function App() {
       height="100px"
       gridC="2"
       gridR="2"
+      top="10px"
       ></RectangularComponent>
       <RectangularComponent 
       radius="10px"
@@ -79,6 +84,7 @@ function App() {
       height="100px"
       gridC="3"
       gridR="2"
+      top="10px"
       ></RectangularComponent>
       <RectangularComponent 
       radius="10px"

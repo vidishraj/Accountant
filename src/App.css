@@ -4,6 +4,7 @@
 
 .firstGrid{
     display: grid;
+    margin-inline-start: 5px;
 }
 
 .mainImage{
@@ -11,12 +12,12 @@
     grid-column:1/span 3;
     height: auto;
     width: auto;
-    min-width: 450px;
-    min-height: 300px;
+    min-width: 550px;
+    min-height: 400px;
     max-width: 500px;
     max-height: 450px;
-    margin-block-start: 50px;
-    margin-inline-start: 20px;
+    margin-block-start: 25px;
+    margin-inline-start: 15px;
 }
 .logoContainer{
     grid-row:1/span 2;
