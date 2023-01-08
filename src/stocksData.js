@@ -67,7 +67,7 @@ const StocksData = (props) => {
       </div>
          </>
          )}
-    <PopUpStruct></PopUpStruct>
+    <PopUpStruct stocksData={myData.StocksList}></PopUpStruct>
     </>
   );
 };

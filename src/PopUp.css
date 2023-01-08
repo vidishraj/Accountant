@@ -9,6 +9,15 @@
     align-items: center;
     justify-content: center;
 }
+.editContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.itemName{
+    width: 50%;
+    text-align: center;
+}
 
 .editButton{
     border-radius: 10px;
