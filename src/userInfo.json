@@ -2,24 +2,27 @@
     "StocksList":[
         {
             "name":"Prudent",
+            "symbol":"prudent",
             "price": 1197.1,
             "gains": 0,
             "buyingPrice":698,
             "quantity": 12
         },
         {
-            "name":"JAICORPLTD",
+            "name":"Jai Corp LTD",
+            "symbol":"jaicorpltd",
             "price": 150.95,
             "gains": 0,
             "buyingPrice":208.23,
             "quantity": 60
         },
         {
-            "name":"adani gas",
+            "name":"Adani Wilmar",
+            "symbol":"awl",
             "price": 150.95,
             "gains": 0,
-            "buyingPrice":208.23,
-            "quantity": 60
+            "buyingPrice":718,
+            "quantity": 15
         }
     ]
 }

@@ -3,36 +3,48 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'
 import './PopUp.css'
-import editIcon from './editIcon.png'
+import userEvent from '@testing-library/user-event';
 
 const PopUpStruct=(props)=>{
-    const [show, setShow] = useState(false);
-    const [name, setName] = useState("");
+  const [show, setShow] = useState(false);
+  const [stocksData, setStocksData] = useState(props.stocksData);
+  let EditArray=new Array(props.stocksData.length).fill(false)
+  const [editArray, seteditArray] = useState(EditArray);
 
-  const handleChange = (e) => setName(e.target.value);
+  const handleChange = (e, index, value) => stocksData[index][value]=e.target.value;
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  console.log(props)
+  
+  function calculateGains(){
+    return;
+
+  }
+  function enableButton(index){
+      if(editArray[index]){
+        EditArray[index]=false;
+      }
+      else{
+        EditArray[index]=true;
+      }
+      seteditArray(EditArray);
+  }
     return (
       <>
-        <div className='editButtonDiv'> <button className='editButton' onClick={handleShow}><img src={editIcon} className='editIcon'></img></button></div>
         <div className='modal'>
-        <Modal  show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Edit Stocks</Modal.Title>
+            <Modal.Title className="text-center">Edit Stocks</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <div>Edit your old stocks.</div>
-            {props.stocksData.map( element => <>
-              <Modal.Dialog>
-                <Form.Group className='editContainer' >
-                <Form.Label className="itemName">Name: </Form.Label>
-                <Form.Control type="text" onChange={handleChange} value={element.name} placeholder="name input"/>
-                <Form.Label className="itemName">Price: </Form.Label>
-                <Form.Control type="text" onChange={handleChange} value={element.buyingPrice} placeholder="name input"/>
-                <Form.Label className="itemName">Quantity: </Form.Label>
-                <Form.Control type="text" onChange={handleChange} value={element.quantity} placeholder="name input"/>
-              </Form.Group>
+          <Modal.Body  style={{backgroundColor:"white", borderRadius:'10px'}}>
+          <Form.Text size='lg'>Turn switch to edit.</Form.Text>
+            {stocksData.map( (element,index) => <>
+              <Modal.Dialog className='editContainer'>
+                <Form.Group style={{backgroundColor:"white"}}>
+                  <Form.Label  className='itemName'>{element.name}</Form.Label>
+                  <Form.Control disabled={!editArray[index]} type="number" className="priceValue" onChange={(e)=>handleChange(e, index, "buyingPrice")} defaultValue={element.buyingPrice} placeholder="price"/>
+                  <Form.Control disabled={!editArray[index]} type="number" className="quantityValue" onChange={(e)=>handleChange(e, index, "quantity")} defaultValue={element.quantity} placeholder="quantity"/>
+                  <Form.Switch onChange={()=>enableButton(index)}></Form.Switch>
+                </Form.Group>
               </Modal.Dialog>
          </>
          )}
@@ -41,7 +53,7 @@ const PopUpStruct=(props)=>{
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button disabled variant="primary" onClick={handleClose}>
               Save Changes
             </Button>
           </Modal.Footer>

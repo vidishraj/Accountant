@@ -1,19 +1,18 @@
-// import axios from "axios";
-// import React from "react";
-// import config from "./config.json"
+import axios from "axios";
+import React from "react";
+import config from "./config.json"
 
-// const StocksDataFetcher=(props)=>{
+// export var refresher=function(){
+//     axios.get(config.backendURL+"/refreshStocks")
+//       .then((response) => {
+//         console.log(response.data)
+//         return response.data.Response;
+//         }
+//       )
+//   }
 
-//     function refreshStocks(){
-
-//         axios.get(backendURL+"refreshStocks")
-//         .then((response) => {return response.data})
-//     }
-
-    
-// }
-// function updateStocks(stocksList){
-
-//     axios.post(config.backendURL+"/updateStocks").then((response)=>
+//   export var updater=function updateStocks(stocksList){
+//     console.log(stocksList)
+//     axios.post(config.backendURL+"/updateStocks", stocksList).then((response)=>
 //     console.log(response)).catch((err)=>console.log(err))
-// }
+//   }

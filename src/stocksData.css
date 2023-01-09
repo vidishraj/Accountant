@@ -64,6 +64,7 @@
     color: greenyellow;
     text-align: center;
     min-width: 100px;
+    border-bottom: .2mm black solid;
     line-height: 50px;
     height: 50px;
 }
@@ -88,6 +89,7 @@
     max-height: 25px; 
 }
 .gainsLoss{
+    text-align: center;
     color: white;
     flex-grow: 1;
     border-bottom-left-radius: 10px;
@@ -106,9 +108,37 @@
     height: 50px;
 }
 .quantity{
-    background-color: white;
-    border-bottom: .2mm solid black;
-    padding: 5px;
+    color: white;
+    background-color: #514b43;
+    text-align: center;
+    padding: 0px;
     width: 100px;
-    height: 50px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    gap:29%;
+    background-color: white;
+}
+
+
+.editButton{
+    margin-left: 20px;
+    border-radius: 30px;
+    background-color: #76FF7A;
+    width:90px;
+}
+.addButton{
+    margin-right: 10px;
+    border-radius: 30px;
+    background-color: #76FF7A;
+    width:90px;
+}
+.Icon{
+    width:40px;
+    height:40px;
+    background-color: #76FF7A;
 }
