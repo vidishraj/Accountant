@@ -41,7 +41,7 @@ const StocksData = (props) => {
       else{
         colorList[index]="greenyellow"
       }
-      myData.StocksList[index].gains=Math.abs(profit.toPrecision(6));
+      myData.StocksList[index].gains=Math.abs(profit).toPrecision(6);
     });
   }
   function updateStocks(stocksList){
