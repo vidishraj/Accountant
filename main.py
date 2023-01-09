@@ -27,9 +27,11 @@ def updateStocks():
 @app.route('/refreshStocks', methods=['GET'])
 def refreshStocks():
     try:
-        return stocksFetcher.refresh()
+        updatedStocks=stocksFetcher.refresh()
+        print(updatedStocks)
+        return jsonify({"Response": updatedStocks}),200
     except Exception as ex:
-        print(ex)
+        return Response({"Error": ex}, status=500)
 
 
 @app.route('/fetchStatement', methods=['POST'])
